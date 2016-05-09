@@ -1,0 +1,25 @@
+<h2>Login</h2>
+<a ui-sref="register">Not a user yet? Register</a>
+<form ng-submit="login(user)">
+    <fieldset>
+        <input type="text"
+               ng-model="user.username"
+               placeholder="Username"
+               required
+               minlength="6"
+               >
+        <input type="email"
+               ng-model="user.email"
+               placeholder="Email"
+               required
+               minlength="6"
+               >
+        <input type="password"
+               ng-model="user.password"
+               placeholder="Password"
+               required
+               minlength="6"
+               >
+        <input type="submit">
+    </fieldset>
+</form>

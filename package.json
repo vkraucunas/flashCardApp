@@ -6,8 +6,9 @@
     "start": "node ./src/server/bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.15.0",
+    "bcrypt": "^0.8.6",
     "bluebird": "^3.3.3",
+    "body-parser": "~1.15.0",
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "cookie-parser": "~1.4.1",
