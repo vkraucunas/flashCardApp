@@ -42,7 +42,7 @@ var nodemonConfig = {
 };
 
 var nodemonDistConfig = {
-  script: paths.distServer,
+  script: paths.distServer[0],
   ext: 'html js css',
   ignore: ['node_modules']
 };
