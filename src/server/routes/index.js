@@ -1,10 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var pg = require('pg');
-var knex = require('knex');
+var queries = require('../db/queries.js');
 
-router.get('/', function(req, res, next) {
 
+router.get('/decks/:id', function(req, res, next) {
+    console.log('hey!', req.params.id);
+    queries.DecksForUser(req.params.id)
+    .then(function(decks) {
+        res.status(200).json({
+            decks: decks
+        })
+    })
 });
 
 module.exports = router;

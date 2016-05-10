@@ -4,6 +4,10 @@ function Users() {
     return knex('users');
 }
 
+function Owners() {
+    return knex('owners');
+}
+
 module.exports = {
     Users: function() {
         return Users();
@@ -17,6 +21,10 @@ module.exports = {
     NewUser: function(data) {
         return Users().insert(data)
         .returning('*');
+    },
+    DecksForUser: function(id) {
+        return Owners()
+        .innerJoin('decks', 'owners.deck_id', 'decks.id').where('owners.user_id', id)
     }
 }
 
