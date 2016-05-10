@@ -3,10 +3,12 @@
     <div class="deckChunk"
          ng-repeat="deck in decks track by $index"
          >
-         <h3>{{deck.deck_name}}</h3>
-        <img class="dash-deck-img"
-             src="{{deck.deck_img}}"
-             alt="deck image"
-             >
+        <a href="/deck/{{deck.id}}">
+            <h3>{{deck.deck_name}}</h3>
+            <img class="dash-deck-img"
+                 src="{{deck.deck_img}}"
+                 alt="deck image"
+                 >
+        </a>
     </div>
 </div>
