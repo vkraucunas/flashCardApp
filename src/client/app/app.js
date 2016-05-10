@@ -6,7 +6,7 @@ angular.module('myApp', [ 'ui.router'])
                 url: '/',
                 templateUrl: 'templates/home.html',
                 restricted: false,
-                preventLoggedIn: false
+                preventLoggedIn: true
             })
             .state('register', {
                 url: '/register',
@@ -22,21 +22,20 @@ angular.module('myApp', [ 'ui.router'])
                 restricted: false,
                 preventLoggedIn: true
             })
-            .state('main', {
-                url: '/main',
-                templateUrl: 'templates/main.html',
-                // controller: 'MembersCtrl',
-                // controller: "loginController",
+            .state('dash', {
+                url: '/dash',
+                templateUrl: 'templates/dash.html',
+                controller: 'DashCtrl',
                 restricted: true,
                 preventLoggedIn: false
             })
-            // .state('members.single', {
-            //     url: '/:deckID',
-            //     templateUrl: 'templates/single.html',
-            //     controller: 'SingleCtrl',
-            //     restricted: true,
-            //     preventLoggedIn: false
-            // })
+            .state('dash.deck-preview', {
+                url: '/deck/:deckID',
+                templateUrl: 'templates/deck-preview.html',
+                controller: 'DashCtrl',
+                restricted: true,
+                preventLoggedIn: false
+            })
             // .state('profile', {
             //     url: '/profile',
             //     templateUrl: 'templates/profile.html',
@@ -56,24 +55,24 @@ angular.module('myApp', [ 'ui.router'])
                 resolve: {
                     test: function(authService, $rootScope, $location) {
                         authService.logout();
-                        $rootScope.currentUser = authService.getUserInfo();
+                        $rootScope.currentUser = authService.getUserID();
                         $location.path('/');
                     }
                 }
             })
-            // $httpProvider.interceptors.push('authInterceptor');
+            $httpProvider.interceptors.push('authInterceptor');
         })
-  //       .run(routeChange);
+        .run(routeChange);
 
-  // function routeChange($rootScope, $location, $window, authService) {
-  //   $rootScope.$on('$stateChangeStart', function(event, next, current) {
-  //     // if route us restricted and no token is present
-  //     if(next.restricted && !$window.localStorage.getItem('token')) {
-  //       $location.path('/login');
-  //     }
-  //     // if token and prevent logging in is true
-  //     if(next.preventLoggedIn && $window.localStorage.getItem('token')) {
-  //       $location.path('/');
-  //     }
-  //   });
-  // }
+  function routeChange($rootScope, $location, $window, authService) {
+    $rootScope.$on('$stateChangeStart', function(event, next, current) {
+      // if route us restricted and no token is present
+      if(next.restricted && !$window.localStorage.getItem('token')) {
+        $location.path('/login');
+      }
+      // if token and prevent logging in is true
+      if(next.preventLoggedIn && $window.localStorage.getItem('token')) {
+        $location.path('/dash');
+      }
+    });
+  }
