@@ -11,7 +11,7 @@ var Promise = require('bluebird');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
-
+var auth = require('./routes/auth.js');
 
 // *** express instance *** //
 var app = express();
@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // *** main routes *** //
 app.use('/api', routes);
+app.use('/api/auth', auth);
 
 
 // catch 404 and forward to error handler
