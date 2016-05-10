@@ -54,7 +54,6 @@ router.post('/login', function (req, res, next) {
             });
         }
         if (comparePassword(req.body.password, user.password)) {
-            console.log("yay!");
             var token = generateToken(user);
             res.status(200).json({
                 status: 'success',
