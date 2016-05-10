@@ -23,6 +23,7 @@
       setUserInfo: function(userData) {
         $window.localStorage.setItem('user', userData.data.data.user);
         $window.localStorage.setItem('token', userData.data.data.token);
+        $window.localStorage.setItem('id', userData.data.data.id);
       },
       getUserInfo: function(userData) {
         return $window.localStorage.getItem('user');

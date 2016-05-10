@@ -49,18 +49,18 @@ angular.module('myApp', [ 'ui.router'])
             // //     templateUrl: 'templates/search.html',
             // //     controller: SearchCtrl
             // // })
-            // .state('logout', {
-            //     url: '/logout',
-            //     restricted: false,
-            //     preventLoggedIn: false,
-            //     resolve: {
-            //         test: function(authService, $rootScope, $location) {
-            //             authService.logout();
-            //             $rootScope.currentUser = authService.getUserInfo();
-            //             $location.path('/');
-            //         }
-            //     }
-            // })
+            .state('logout', {
+                url: '/logout',
+                restricted: false,
+                preventLoggedIn: false,
+                resolve: {
+                    test: function(authService, $rootScope, $location) {
+                        authService.logout();
+                        $rootScope.currentUser = authService.getUserInfo();
+                        $location.path('/');
+                    }
+                }
+            })
             // $httpProvider.interceptors.push('authInterceptor');
         })
   //       .run(routeChange);
