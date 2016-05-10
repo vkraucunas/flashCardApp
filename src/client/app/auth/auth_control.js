@@ -21,23 +21,22 @@ angular.module('myApp')
                     console.log(err);
                 });
             }
-        }
 
-                // $scope.luser = {
-        //         email: '',
-        //         password: ''
-        //     };
-        // $scope.login = function() {
-        //     authService.login($scope.luser)
-        //     .then(function(user) {
-        //         console.log(user);
-        //         authService.setUserInfoLogin(user);
-        //         $location.path('/members');
-        //         $rootScope.currentUser = authService.getUserInfo();
-        //     })
-        //     .catch(function(err) {
-        //         $scope.err = true;
-        //         console.log(err);
-        //     });
-        // };
+        $scope.logUser = {
+            email: '',
+            password: ''
+        };
+        $scope.login = function() {
+            authService.login($scope.logUser)
+            .then(function(user) {
+                console.log(user);
+                authService.setUserInfo(user);
+                $location.path('/main');
+                $rootScope.currentUser = authService.getUserInfo();
+            })
+            .catch(function(err) {
+                $scope.err = true;
+                console.log(err);
+            });
+        };
     }

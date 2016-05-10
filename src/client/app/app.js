@@ -15,21 +15,21 @@ angular.module('myApp', [ 'ui.router'])
                 restricted: false,
                 preventLoggedIn: true
             })
-            // .state('login', {
-            //     url: '/login',
-            //     templateUrl: 'templates/login.html',
-            //     controller: "AuthCtrl",
-            //     restricted: false,
-            //     preventLoggedIn: true
-            // })
-            // .state('members', {
-            //     url: '/main',
-            //     templateUrl: 'templates/members.html',
-            //     controller: 'MembersCtrl',
-            //     // controller: "loginController",
-            //     restricted: true,
-            //     preventLoggedIn: false
-            // })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: "AuthCtrl",
+                restricted: false,
+                preventLoggedIn: true
+            })
+            .state('main', {
+                url: '/main',
+                templateUrl: 'templates/main.html',
+                // controller: 'MembersCtrl',
+                // controller: "loginController",
+                restricted: true,
+                preventLoggedIn: false
+            })
             // .state('members.single', {
             //     url: '/:deckID',
             //     templateUrl: 'templates/single.html',
@@ -49,18 +49,18 @@ angular.module('myApp', [ 'ui.router'])
             // //     templateUrl: 'templates/search.html',
             // //     controller: SearchCtrl
             // // })
-            // .state('logout', {
-            //     url: '/logout',
-            //     restricted: false,
-            //     preventLoggedIn: false,
-            //     resolve: {
-            //         test: function(authService, $rootScope, $location) {
-            //             authService.logout();
-            //             $rootScope.currentUser = authService.getUserInfo();
-            //             $location.path('/');
-            //         }
-            //     }
-            // })
+            .state('logout', {
+                url: '/logout',
+                restricted: false,
+                preventLoggedIn: false,
+                resolve: {
+                    test: function(authService, $rootScope, $location) {
+                        authService.logout();
+                        $rootScope.currentUser = authService.getUserInfo();
+                        $location.path('/');
+                    }
+                }
+            })
             // $httpProvider.interceptors.push('authInterceptor');
         })
   //       .run(routeChange);
