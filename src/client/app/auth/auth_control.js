@@ -21,7 +21,6 @@ angular.module('myApp')
                     console.log(err);
                 });
             }
-        }
 
                 // $scope.luser = {
         //         email: '',

@@ -22,14 +22,14 @@ angular.module('myApp', [ 'ui.router'])
             //     restricted: false,
             //     preventLoggedIn: true
             // })
-            // .state('members', {
-            //     url: '/main',
-            //     templateUrl: 'templates/members.html',
-            //     controller: 'MembersCtrl',
-            //     // controller: "loginController",
-            //     restricted: true,
-            //     preventLoggedIn: false
-            // })
+            .state('main', {
+                url: '/main',
+                templateUrl: 'templates/main.html',
+                // controller: 'MembersCtrl',
+                // controller: "loginController",
+                restricted: true,
+                preventLoggedIn: false
+            })
             // .state('members.single', {
             //     url: '/:deckID',
             //     templateUrl: 'templates/single.html',
