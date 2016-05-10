@@ -15,13 +15,13 @@ angular.module('myApp', [ 'ui.router'])
                 restricted: false,
                 preventLoggedIn: true
             })
-            // .state('login', {
-            //     url: '/login',
-            //     templateUrl: 'templates/login.html',
-            //     controller: "AuthCtrl",
-            //     restricted: false,
-            //     preventLoggedIn: true
-            // })
+            .state('login', {
+                url: '/login',
+                templateUrl: 'templates/login.html',
+                controller: "AuthCtrl",
+                restricted: false,
+                preventLoggedIn: true
+            })
             .state('main', {
                 url: '/main',
                 templateUrl: 'templates/main.html',
