@@ -15,5 +15,15 @@ angular.module('myApp')
                 $scope.decks = response;
             })
         })();
+        $scope.deckID;
+        $scope.setDeckID = function(id) {
+            $scope.deckID = id;
+        }
+        // $scope.getSingleDeck = function() {
+        //     dashService.getSingleDeck($scope.deckID)
+        //     .then(function(response) {
+        //         console.log(response);
+        //     })
+        // };
 
     }

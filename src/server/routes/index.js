@@ -4,7 +4,6 @@ var queries = require('../db/queries.js');
 
 
 router.get('/decks/:id', function(req, res, next) {
-    console.log('hey!', req.params.id);
     queries.DecksForUser(req.params.id)
     .then(function(decks) {
         res.status(200).json({
@@ -12,5 +11,14 @@ router.get('/decks/:id', function(req, res, next) {
         })
     })
 });
+
+router.get('/deck/:id', function(req, res, next) {
+    queries.SingleDeck(req.params.id)
+    .then(function(deck) {
+        res.status(200).json({
+            deck: deck
+        })
+    })
+})
 
 module.exports = router;

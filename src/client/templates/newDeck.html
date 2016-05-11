@@ -1,0 +1,20 @@
+<h1>Create a new deck!</h1>
+
+<form>
+    <fieldset>
+        <input type="text"
+               minlength="4"
+               placeholder="Deck name"
+               required
+               ng-model="deck.deck_name"
+               >
+        <input type="text"
+               minlength="4"
+               placeholder="Deck image (optional)"
+               ng-model="deck.deck_img"
+               >
+        <textarea ng-model="deck.deck_descript"
+                  placeholder="Brief description of deck"></textarea>
+
+    </fieldset>
+</form>
