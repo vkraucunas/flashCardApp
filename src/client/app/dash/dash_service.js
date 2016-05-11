@@ -5,6 +5,9 @@ angular.module('myApp')
             return {
                 getUserDecks: function(userID) {
                     return $http.get('/api/decks/'+userID)
+                },
+                getSingleDeck: function(deckID) {
+                    return $http.get('/api/deck/'+deckID);
                 }
             }
         }])

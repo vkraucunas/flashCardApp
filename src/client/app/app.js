@@ -29,9 +29,16 @@ angular.module('myApp', [ 'ui.router'])
                 restricted: true,
                 preventLoggedIn: false
             })
-            .state('dash.deck-preview', {
+            .state('newDeck', {
+                url: '/deck/create',
+                templateUrl: 'templates/newDeck.html',
+                controller: 'DashCtrl',
+                restricted: true,
+                preventLoggedIn: false
+            })
+            .state('deckPreview', {
                 url: '/deck/:deckID',
-                templateUrl: 'templates/deck-preview.html',
+                templateUrl: 'templates/deckPre.html',
                 controller: 'DashCtrl',
                 restricted: true,
                 preventLoggedIn: false

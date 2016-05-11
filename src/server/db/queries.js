@@ -8,6 +8,10 @@ function Owners() {
     return knex('owners');
 }
 
+function Decks() {
+    return knex('decks');
+}
+
 module.exports = {
     Users: function() {
         return Users();
@@ -25,6 +29,9 @@ module.exports = {
     DecksForUser: function(id) {
         return Owners()
         .innerJoin('decks', 'owners.deck_id', 'decks.id').where('owners.user_id', id)
+    },
+    SingleDeck: function(id) {
+        return Decks().where('id', id);
     }
 }
 
